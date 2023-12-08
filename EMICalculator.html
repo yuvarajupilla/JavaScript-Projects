@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent{
+            width: 100%;
+            height: 300px;
+            float: left;
+            /* background-color: darkgray; */
+        }
+    
+        .a1{
+            width: 400px;
+            height: 200px;
+            /* background-color: aquamarine; */
+            float: left;
+        }
+        .mrange{
+            width: 200px;
+        }
+        button{
+            position: relative;
+            left: 20px;
+            top: 40px;
+            padding: 10px;
+            border-radius: 20px;
+            width: 100px;
+            font-size: 20px;
+        }
+        h1{
+            color: red;
+        }
+        h2{
+            color: blue;
+            text-align: center;
+        }
+        .yuvi{
+            width: 200px;
+        }
+        .year1{
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PERSONAL LOAN EMI CALCULATOR:</h1>
+   
+        <div class="a1">
+            <table>
+                <tr>
+                    <td>Enter your amount:&#8377
+                        <input type="text" size="9" id="amount" class="yuvi">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="range" class="mrange" id="amountrange" min="50000" max="4000000" onchange="amount1()" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &#8377 50,000 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#8377 4,00,0000
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="a1">
+            <table>
+                <tr>
+                    <td>for
+                        <input type="text" size="9" id="year" class="yuvi year1">year
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="range" class="mrange" id="yearrange" onchange="year2()" min="1" max="5" step="0.1"></td>
+                </tr>
+                <tr>
+                    <td>1 year &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp5 year</td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="a1">
+            <table>
+                <tr>
+                    <td>Interest
+                        <input type="text" size="9" id="interest" class="yuvi">%
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="range" class="mrange" id="interestrange" onchange="interest3()" min="10.5" max="21" step="0.1"></td>
+                </tr>
+                <tr>
+                    <td>10.5%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 21%</td>
+
+                </tr>
+            </table>
+            <button onclick="EMI()">Click</button>
+        </div>
+       
+<br>
+    <h1 id="demo" style="color:blue;"></h1>
+ <!-- ------------------------------------------------------------------------------------------ -->
+    <h1>HOME LOAN EMI CALCULATOR:</h1>
+   
+        <div class="a1">
+            <table>
+                <tr>
+                    <td>Amount you need
+                        <input type="text" size="9" id="hamount" class="yuvi">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="range" class="mrange" id="hamountrange" min="100000" max="100000000" onchange="hamount1()" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &#8377 1,00,000 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#8377 10,00,00,000
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="a1">
+            <table>
+                <tr>
+                    <td>for
+                        <input type="text" size="9" id="hyear" class="yuvi">year
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="range" class="mrange" id="hyearrange" onchange="hyear2()" min="1" max="30" step="0.1"></td>
+                </tr>
+                <tr>
+                    <td>1 year &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 30 years</td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="a1">
+            <table>
+                <tr>
+                    <td>Interest rate
+                        <input type="text" size="9" id="hinterest" class="yuvi">%
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="range" class="mrange" id="hinterestrange" onchange="hinterest3()" min="5" max="15" step="0.1"></td>
+                </tr>
+                <tr>
+                    <td>5%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15%</td>
+
+                </tr>
+            </table>
+            <button onclick="HEMI()">Click</button>
+        </div>
+       
+<br>
+    <h1 id="demo" style="color:blue;"></h1>
+    <script>
+            function hamount1()
+            {
+                document.getElementById("hamount").value=document.getElementById("hamountrange").value;
+            }
+            function hyear2()
+            {
+                document.getElementById("hyear").value=document.getElementById("hyearrange").value;
+            }
+            function hinterest3()
+            {
+                document.getElementById("hinterest").value=document.getElementById("hinterestrange").value;
+            }
+            function HEMI()
+            {
+//             EMI is calculated using the formula: 
+//P= Principal or your loan amount
+//R= Rate of interest
+//N= Tenure (loan term in number of years)
+let N=document.getElementById("year").value*12
+let R=(document.getElementById("interest").value/100)/12;
+let P=document.getElementById("amount").value
+//P x R x (1+R)^N] / [(1+R)^N-1]
+let emi=[P*R*Math.pow((1+R),N)]/[Math.pow((1+R),N)-1]
+let emi1=Math.floor(emi);
+let b=
+document.getElementById("demo").innerHTML=`Your Monthly EMI will be ₹ ${emi1} per month`
+
+            }
+
+//--------------------------------------------------Home Loan EMi Script
+
+function hamount1()
+            {
+                document.getElementById("amount").value=document.getElementById("amountrange").value;
+            }
+            function year2()
+            {
+                document.getElementById("year").value=document.getElementById("yearrange").value;
+            }
+            function interest3()
+            {
+                document.getElementById("interest").value=document.getElementById("interestrange").value;
+            }
+    </script>
+</body>
+</html>

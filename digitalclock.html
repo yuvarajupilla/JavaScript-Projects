@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: yellow;
+            font-size: 40px;
+            color: red;
+            text-align: center;
+        }
+        .container
+        {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 200px;
+            
+        }
+        span{
+            font-size: 100px;
+        }
+        #clock{
+            font-size: 50px;
+        }
+      #date1
+      {
+        font-size: 40px;
+        color: blue;
+      }
+      .decorate{
+        text-shadow:1px 1px 2px red,-1px 1px 2px red,1px -1px 1px red,-1px -1px 2px red ;
+        color:forestgreen;
+      }
+      body{
+        background-color:darkorange;
+        background-image: url(../images/nature\ wallpaper.jpg);
+        animation: clock1 20s infinite;
+      }
+      @keyframes clock1{
+        from{
+            filter: hue-rotate(0deg);
+        }
+        to{
+            filter:hue-rotate(2000deg);
+        }
+      }
+      
+
+    </style>
+</head>
+<body>
+    <h1>Digital clock</h1>
+    <div class="container">
+      <span id="clock" class="decorate"></span><br><br><br>
+      <span id="date1" class="decorate"></span>
+    </div>
+    <!-- <button onclick="displayTime()">click</button> -->
+    <script>
+        function displayTime()
+        {
+            let date=new Date()
+            let h=date.getHours()
+            let m=date.getMinutes()
+            let s=date.getSeconds()
+
+            let day=date.getDay()
+            let date1=date.getDate()
+            let month=date.getMonth()
+            let year=date.getFullYear()
+
+            let day1=['mon','tue','wen','Thursday','friday','Saturday']
+            let month1=['jan','feb','march','april','may','june','july','aug','September','oct','nov','dec']
+
+            let h1=(h>12)?(h-12):h
+            let h2=(h1<=9)?("0"+h1):h1
+
+            let m2=(m<=9)?("0"+m):m
+            
+            let s2=(s<=9)?("0"+s):s
+
+            document.getElementById("clock").innerHTML=`${h2} : ${m2} : ${s2}`
+            document.getElementById("date1").innerHTML=`<b>${day1[day]}  ${date1}  ${month1[month]}  ${year}`
+
+            // setTimeout(() => {
+            //     displayTime()
+            // },1000);
+        }
+        setInterval(() => {
+            displayTime();
+        }, 1000);
+        
+       
+    </script>
+</body>
+</html>
